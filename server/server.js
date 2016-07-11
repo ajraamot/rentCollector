@@ -22,6 +22,9 @@ app.listen(port, () => {
   logger.log('info', '[EXPRESS] - listening port: %d', port);
 });
 
+app.use('/renters', require('./controllers/renters'));
+app.use('/apartments', require('./controllers/apartments'));
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../static/index.html'));
 });
